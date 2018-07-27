@@ -1,5 +1,5 @@
 {
-  "name": "request-validator",
+  "name": "http-request-errors",
   "version": "0.0.0",
   "private": true,
   "scripts": {
