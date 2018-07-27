@@ -104,8 +104,8 @@ let jsonTest = {
 
 exports.create = async (request, response) => {
     try {
-        const { NotAcceptable } = require('./HttpErrors');
-        await ValidateRequestInput(requestParams, jsonTest);
+        const params = request.params;
+        await ValidateRequestInput(params, jsonTest);
         return 'worked';
     } catch (error) {
         CommonError(error);
