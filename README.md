@@ -77,7 +77,7 @@ The input validator uses the [jsonschema](https://www.npmjs.com/package/jsonsche
 
 ```
 const { CommonError } = require('../lib/HttpErrors');
-// I recommend put your json schemas in a separeted folder.
+// I recommend that for you put your jsons schemas in a separeted folder.
 
 let jsonTest = {
     { 
