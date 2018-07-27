@@ -12,7 +12,7 @@ files **InputValidator** and **HttpErrors**. Have a option Error which uses [Seq
 ## HttpErrors
 The HttpErrors can help you to have the most common http errors in same place and using functions to throw node Errors. 
 
-There it is possible to import any of those errors below and also get a name string or their code. 
+There it is possible to import any of those errors below and also get a name string or their code.
 * UNPROCESSABLE_ENTITY
 * NOT_FOUND
 * BAD_REQUEST
@@ -44,7 +44,7 @@ It is also possible use the method functions to throw an Node Error, like below:
 ### Usage example
 
 ```
-const { NotFound } = require('../lib/HttpErrors');
+const { NotFound } = require('./lib/HttpErrors');
 
 try {
     // code
@@ -62,6 +62,55 @@ try {
   } catch (error) {
     NotFound('User not Found');
   }
+```
+
+Getting message or code and priting.
+```
+const { NOT_FOUND } = require('./lib/HttpErrors');
+console.log(`${NOT_FOUND.string}, ${NOT_FOUND.code}`;
+```
+
+## InputValidator
+The input validator uses the [jsonschema](https://www.npmjs.com/package/jsonschema) to validate a request comparing with a json file. The methods check the required fields, throw a json Error joining all errors from jsonschema in a message.
+
+### Usage Example
+
+```
+const { CommonError } = require('../lib/HttpErrors');
+// I recommend put your json schemas in a separeted folder.
+
+let jsonTest = {
+    { 
+      "id": "/users",
+      "type": "object",
+      "properties":{
+        "login": { "type": "string" },
+        "password": { "type": "string" },
+        "first_name": { "type": "string" },
+        "last_name": { "type": "string" },
+        "lang": { "type": "string" },
+        "active": { "type": "boolean" }
+      },
+      "required": [
+        "login",
+        "password",
+        "first_name",
+        "last_name",
+        "lang",
+        "active"
+      ]
+    }
+}
+
+exports.create = async (request, response) => {
+    try {
+        const { NotAcceptable } = require('./HttpErrors');
+        await ValidateRequestInput(requestParams, jsonTest);
+        return 'worked';
+    } catch (error) {
+        CommonError(error);
+    }
+}
 ```
 
 
