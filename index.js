@@ -1,1 +1,1 @@
-module.exports =  require('./lib/HttpErrors');
+module.exports =  require('./lib/httpRequestErrors');
