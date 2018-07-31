@@ -72,7 +72,6 @@ PreconditionRequired                   |
 TooManyRequests                        |
 RequestHeaderFieldsTooLarge            |
 UnavailableForLegalReasons             |
----------------------------------------|
 
 ### Usage example
 
