@@ -4,37 +4,75 @@ The http errors to creates a helper which join http codes all together in a node
 [![Code style: airbnb](https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat-square)](https://github.com/airbnb/javascript)
 ![node (scoped with tag)](https://img.shields.io/node/v/@stdlib/stdlib/latest.svg)
 
-## HttpErrors
-The HttpErrors can help you to have the most common http errors in same place and using functions to throw node Errors. 
+## HttpClientErrors
+It is possible to import the the client errors by the name bellow and you get get any of them. They are an object with code, string and name.  
 
-There it is possible to import any of those errors below and also get a name string or their code.
-* UNPROCESSABLE_ENTITY
-* NOT_FOUND
-* BAD_REQUEST
-* UNAUTHORIZED
-* PAYMENT_REQUIRED
-* FORBIDDEN
-* METHOD_NOT_ALLOWED
-* NOT_ACCEPTABLE
-* ERR_INVALID_TOKEN
-* EMPTY_PARAM
-* UNAUTHORIZED_DOMAIN
-* EXPIRED_TOKEN
-* ERR_NO_TOKEN
+Code | String                          | Name
+---  | ---                             | ---
+400  | Bad Request                     | BAD_REQUEST
+401  | Unauthorized                    | UNAUTHORIZED
+402  | Payment Required                | PAYMENT_REQUIRED
+403  | Forbidden                       | FORBIDDEN
+404  | Not Found                       | NOT_FOUND
+405  | Method Not Allowed              | METHOD_NOT_ALLOWED
+406  | Not Acceptable                  | NOT_ACCEPTABLE
+407  | Proxy Authentication Required   | PROXY_AUTHENTICATION_REQUIRED
+408  | Request Timeout                 | REQUEST_TIMEOUT
+409  | Conflict                        | CONFLICT
+410  | Gone                            | GONE
+411  | Length Required                 | LENGTH_REQUIRED
+412  | Precondition Failed             | PRECONDITION_FAILED
+413  | Payload Too Large               | PAYLOAD_TOO_LARGE
+414  | Uri Too long                    | URI_TOO_LONG
+415  | Unsupported Media Type          | UNSUPPORTED_MEDIA_TYPE
+416  | Range Not Satisfiable           | RANGE_NOT_SATISFIABLE
+417  | Expectation Failed              | EXPECTATION_FAILED
+418  | Im a Teapot                     | IM_A_TEAPOT
+421  | Misdirected Request             | MISDIRECTED_REQUEST
+422  | Unprocessable Entity            | UNPROCESSABLE_ENTITY
+423  | Locked                          | LOCKED
+424  | Failed Dependency               | FAILED_DEPENDENCY
+425  | Unordered Collection            | UNORDERED_COLLECTION
+426  | Upgrade Required                | UPGRADE_REQUIRED
+428  | Precondition Required           | PRECONDITION_REQUIRED
+429  | Too Many Requests               | TOO_MANY_REQUESTS
+431  | Request Header Fields Too Large | REQUEST_HEADER_FIELDS_TOO_LARGE
+451  | Unavailable for Legal Reqsons   | UNAVAILABLE_FOR_LEGAL_REASONS
 
-It is also possible use the method functions to throw an Node Error, like below:
-* CustomError
-* SequelizeError
-* JsonValidationError
-* BadRequest
-* Unauthorized
-* PaymentRequired
-* Forbidden
-* NotFound
-* MethodNotAllowed
-* NotAcceptable
-* UnprocessableEntity
-* CommonError
+It is also possible use the method functions to return a Node Error, like below:
+
+Name                                   |
+---------------------------------------|
+BadRequest                             |
+Unauthorized                           |
+PaymentRequired                        |
+Forbidden                              |
+NotFound                               |
+MethodNotAllowed                       |
+NotAcceptable                          |
+ProxyAuthenticationRequired            |
+RequestTimeout                         |
+Conflict                               |
+Gone                                   |
+LengthRequired                         |
+PreconditionFailed                     |
+PayloadTooLarge                        |
+UriTooLong                             |
+UnsupportedMediaType                   |
+RangeNotSatisfiable                    |
+ExpectionFailed                        |
+ImATeapot                              |
+MisdirectedRequest                     |
+UnprocessableEntity                    |
+Locked                                 |
+FailedDependency                       |
+UnorderedCollection                    |
+UpgradeRequired                        |
+PreconditionRequired                   |
+TooManyRequests                        |
+RequestHeaderFieldsTooLarge            |
+UnavailableForLegalReasons             |
+---------------------------------------|
 
 ### Usage example
 
