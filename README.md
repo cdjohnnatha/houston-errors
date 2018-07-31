@@ -39,7 +39,8 @@ Code | String                          | Name
 431  | Request Header Fields Too Large | REQUEST_HEADER_FIELDS_TOO_LARGE
 451  | Unavailable for Legal Reqsons   | UNAVAILABLE_FOR_LEGAL_REASONS
 
-It is also possible use the method functions to return a Node Error, like below:
+It is also possible use the method functions which a returns a [JavaScript Error](https://nodejs.org/api/errors.html#errors_class_error) and contains keys like **name, code, message, stack.** By default, those methods just returns code, name and message. It's also possible set and use them in a custom function called **CustomError** to create you own error, or if you want just throw your error, use **ThrowError** importing the core. 
+The available methods are listed bellow.
 
 Name                                   |
 ---------------------------------------|
@@ -72,6 +73,16 @@ PreconditionRequired                   |
 TooManyRequests                        |
 RequestHeaderFieldsTooLarge            |
 UnavailableForLegalReasons             |
+
+## Core
+All function listed above use on of the functions from core.
+
+
+Name                                   | Params     | Obs                                                                             |
+---------------------------------------|------------|---------------------------------------------------------------------------------|
+Logger                                 | error      | Any Js Error object, it will access error code and message for print on console |
+CustomError                            | message, errorCode, name, stack | It will use the js error to set all those variables        |
+ThrowError                             | error      | Uses Logger method to print and just return the error                           | 
 
 ### Usage example
 
