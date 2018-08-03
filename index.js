@@ -1,1 +1,5 @@
-module.exports =  require('./lib/httpRequestErrors');
+const clientErrors = require('./lib/clientErrors');
+
+module.exports =  {
+    clientErrors,
+};
