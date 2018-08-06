@@ -1,10 +1,10 @@
-# HttpErrors
-The http errors to creates a helper which join http codes all together in a node application. It also have an option Error which uses [Sequelize](http://docs.sequelizejs.com/) pattern to show a error.
+# Houston "we have a problem"
+The Houston creates http errors (is also used to create custom errors) in a node application. The idea is to centralize all errors in a function, have a easy access to default http errors getting code, string and name, show in console and the best, given you a freedom  to handle the errors as you want. It also have an option to handle errors from [Sequelize](http://docs.sequelizejs.com/) pattern.
 
 [![Code style: airbnb](https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat-square)](https://github.com/airbnb/javascript)
 ![node (scoped with tag)](https://img.shields.io/node/v/@stdlib/stdlib/latest.svg)
 
-## HttpClientErrors
+## HoustonClientErrors
 It is possible to import the the client errors by the name bellow and you get get any of them. They are an object with code, string and name.  
 
 Code | String                          | Name
@@ -74,7 +74,7 @@ TooManyRequests                        |
 RequestHeaderFieldsTooLarge            |
 UnavailableForLegalReasons             |
 
-## Core
+## Houston
 All function listed above use on of the functions from core.
 
 
