@@ -1,4 +1,4 @@
-const clientErrors = require('../lib/clientErrors');
+const clientErrors = require('../lib/houstonClientErrors');
 
 test('Test Bad Request', async () => {
     expect(clientErrors.BAD_REQUEST).toEqual({code: 400, name: 'BAD_REQUEST', string: 'Bad Request'});
