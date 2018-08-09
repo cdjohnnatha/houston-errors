@@ -4,6 +4,53 @@ The Houston creates http errors (is also used to create custom errors) in a node
 [![Code style: airbnb](https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat-square)](https://github.com/airbnb/javascript)
 ![node (scoped with tag)](https://img.shields.io/node/v/@stdlib/stdlib/latest.svg)
 
+## Houston
+All function listed above use on of DefaultError from houston module.
+
+
+Name                                   | Params     | Obs                                                                             |
+---------------------------------------|------------|---------------------------------------------------------------------------------|
+DefaultError                           | houstonError, {message: message, data: data} | It will create a JS Error object, add name, code, error and the optional data, message. |
+Logger                                 | error      | Any Js Error object, it will print on console error message and data |
+CustomError                            | message, errorCode, name, stack | It will use the js error to set all those variables        |
+ThrowError                             | error      | Uses Logger method to print and just return the error                           |
+HoustonErrorEvent                      |            | You can listen houstonError by the event 'weHaveAProblem' and do whatever you want.| 
+
+### Usage Example
+
+#### DefaultError(houstonError, {message = undefined, data = undefined})
+
+All the httpFunction found in houstonClientErrors, houstonServerErrors returns this function.
+
+``
+const houston = require('houston');
+const sendMessage = 'This is Houston. Say again, please';
+houston.DefaultError(houston.BAD_REQUEST, {
+    message: sendMessage,
+    data: '{Lousma: houston, we have a problem.}',
+});
+
+``
+
+#### CustomError({ code = 500, error='Internal Server Error', name='INTERNAL_SERVER_ERROR', message=undefined, data=undefined })
+
+
+``
+const houston = require('houston');
+const sendMessage = 'This is Houston. Say again, please';
+const lovellData = {lovell: 'We have had a MAIN B BUS UNDERVOLT'};
+const errorDef = 'houston, we have a problem';
+houston.CustomError({
+    code: 406,
+    error: errorDef,
+    name:'Lousma',
+    message: sendMessage,
+    data: lovellData,
+});
+
+``
+
+
 ## HoustonClientErrors
 It is possible to import the the client errors by the name bellow and you get get any of them. They are an object with code, string and name.  
 
@@ -73,16 +120,6 @@ PreconditionRequired                   |
 TooManyRequests                        |
 RequestHeaderFieldsTooLarge            |
 UnavailableForLegalReasons             |
-
-## Houston
-All function listed above use on of the functions from core.
-
-
-Name                                   | Params     | Obs                                                                             |
----------------------------------------|------------|---------------------------------------------------------------------------------|
-Logger                                 | error      | Any Js Error object, it will access error code and message for print on console |
-CustomError                            | message, errorCode, name, stack | It will use the js error to set all those variables        |
-ThrowError                             | error      | Uses Logger method to print and just return the error                           | 
 
 ### Usage example
 
