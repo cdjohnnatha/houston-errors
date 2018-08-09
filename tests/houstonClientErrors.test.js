@@ -10,11 +10,17 @@ test('Test Bad Request', async () => {
     expect(defaultBadRequestError).toHaveProperty('code', 400);
     expect(defaultBadRequestError).toHaveProperty('name', 'BAD_REQUEST');
     expect(defaultBadRequestError).toHaveProperty('error', 'Bad Request');
-    // expect(defaultBadRequestError.error).toMatch('Bad Request');
-    // expect(defaultBadRequestError.code).toBe(400);
-    // expect(defaultBadRequestError.name).toMatch('BAD_REQUEST');
+    expect(defaultBadRequestError).not.toHaveProperty('data');
+    expect(defaultBadRequestError.error).toMatch('Bad Request');
+    expect(defaultBadRequestError.code).toBe(400);
+    expect(defaultBadRequestError.name).toMatch('BAD_REQUEST');
     expect(defaultBadRequestError.data).toBeUndefined();
+
     const badRequestWithMessage =  await clientErrors.BadRequest(message);
+    expect(defaultBadRequestError).toHaveProperty('code', 400);
+    expect(defaultBadRequestError).toHaveProperty('name', 'BAD_REQUEST');
+    expect(defaultBadRequestError).toHaveProperty('error', 'Bad Request');
+    expect(defaultBadRequestError).not.toHaveProperty('data');
     expect(badRequestWithMessage.code).toBe(400);
     expect(badRequestWithMessage.name).toMatch('BAD_REQUEST');
     expect(badRequestWithMessage.error).toMatch('Bad Request');
@@ -22,6 +28,10 @@ test('Test Bad Request', async () => {
     expect(badRequestWithMessage.data).toBeUndefined();
 
     const badRequestWithMessageData =  await clientErrors.BadRequest(message, data);
+    expect(defaultBadRequestError).toHaveProperty('code', 400);
+    expect(defaultBadRequestError).toHaveProperty('name', 'BAD_REQUEST');
+    expect(defaultBadRequestError).toHaveProperty('error', 'Bad Request');
+    expect(defaultBadRequestError).toHaveProperty('data');
     expect(badRequestWithMessageData.code).toBe(400);
     expect(badRequestWithMessageData.name).toMatch('BAD_REQUEST');
     expect(badRequestWithMessageData.error).toMatch('Bad Request');
