@@ -6,11 +6,13 @@ test('Test Bad Request', async () => {
     expect(clientErrors.BAD_REQUEST).toEqual({code: 400, name: 'BAD_REQUEST', string: 'Bad Request'});
     const data = {field: 'test'};
     const message = 'My custom Bad Request Message';
-    const defaultBadRequestError = await clientErrors.BadRequest();
-    console.log(defaultBadRequestError.name);
-    expect(defaultBadRequestError.code).toBe(400);
-    expect(defaultBadRequestError.name).toMatch('BAD_REQUEST');
-    expect(defaultBadRequestError.error).toMatch('Bad Request');
+    const defaultBadRequestError = await BadRequest();
+    expect(defaultBadRequestError).toHaveProperty('code', 400);
+    expect(defaultBadRequestError).toHaveProperty('name', 'BAD_REQUEST');
+    expect(defaultBadRequestError).toHaveProperty('error', 'Bad Request');
+    // expect(defaultBadRequestError.error).toMatch('Bad Request');
+    // expect(defaultBadRequestError.code).toBe(400);
+    // expect(defaultBadRequestError.name).toMatch('BAD_REQUEST');
     expect(defaultBadRequestError.data).toBeUndefined();
     const badRequestWithMessage =  await clientErrors.BadRequest(message);
     expect(badRequestWithMessage.code).toBe(400);
