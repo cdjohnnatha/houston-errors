@@ -1,4 +1,4 @@
-# Houston "we have a problem"
+# Houston-Errors "we have a problem"
 The Houston creates http errors (is also used to create custom errors) in a node application. The idea is to centralize all errors in a function, have a easy access to default http errors getting code, string and name, show in console and the best, given you a freedom  to handle the errors as you want. It also have an option to handle errors from [Sequelize](http://docs.sequelizejs.com/) pattern.
 
 [![Code style: airbnb](https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat-square)](https://github.com/airbnb/javascript)
@@ -24,7 +24,7 @@ The Houston creates http errors (is also used to create custom errors) in a node
 <!-- tocstop -->
 
 
-## Houston
+## Houston-Errors
 All function listed above use on of DefaultError from houston module.
 
 ### DefaultError(houstonError, [optionals])
@@ -39,7 +39,7 @@ It will create a JS Error object, add name, code, error and the optionals (messa
 #### Usage Example
 
 ```
-    const houston = require('houston');
+    const houston = require('houston-errors');
     const sendMessage = 'This is Houston. Say again, please';
     houston.DefaultError(houston.BAD_REQUEST, {
         message: sendMessage,
@@ -59,7 +59,7 @@ It is also possible create your custom errors setting things like code, error, n
 #### Usage Example
 
 ```
-    const houston = require('houston');
+    const houston = require('houston-errors');
     const sendMessage = 'This is Houston. Say again, please';
     const lovellData = {lovell: 'We have had a MAIN B BUS UNDERVOLT'};
     const errorDef = 'houston, we have a problem';
@@ -78,7 +78,7 @@ You can also listen the HoustonErrorEvents which will emit all houstonError by t
 
 #### Usage Example
 ```
-    const { HoustonErrorEvent } = require('houston');
+    const { HoustonErrorEvent } = require('houston-errors');
 
     HoustonErrorEvent.on('weHaveAProblem', (error) => {
       //..code
@@ -86,7 +86,7 @@ You can also listen the HoustonErrorEvents which will emit all houstonError by t
 ```
 
 ## HoustonClientErrors
-It is possible to import the the client errors by the name bellow and you get get any of them. They are an object with code, string and name.  
+It is possible to import the the client errors by the name bellow and you get get any of them. They are an object with code, string and name.
 
 Code | String                          | Name
 ---  | ---                             | ---
@@ -123,7 +123,7 @@ Code | String                          | Name
 ### Usage example
 
 ```
-  const { NOT_FOUND } = require('houston');
+  const { NOT_FOUND } = require('houston-errors');
   console.log(`code: ${NOT_FOUND.code}, name: ${NOT_FOUND.name}, error: ${NOT_FOUND.error} `);
 ```
 
@@ -161,7 +161,7 @@ TooManyRequests                        |
 RequestHeaderFieldsTooLarge            |
 UnavailableForLegalReasons             |
 
-All those functions above returns a DefaultError and have the structure like: 
+All those functions above returns a DefaultError and have the structure like:
 
 ### FunctionName([optionals])
 - `optionals` - optional object where:
@@ -171,7 +171,7 @@ All those functions above returns a DefaultError and have the structure like:
 ### Usage example
 
 ```
-const { NotFound } = require('houston');
+const { NotFound } = require('houston-errors');
 
 try {
     NotFound();
@@ -182,7 +182,7 @@ try {
 
 Setting message and data.
 ```
-const { NotFound } = require('houston');
+const { NotFound } = require('houston-errors');
 
 try {
     NotFound({message: 'custom message', data: 'some custom object or message'});
@@ -193,7 +193,7 @@ try {
 
 
 ## HoustonServerErrors
-It is possible to import the the server errors by the name bellow and you get get any of them. They are an object with code, string and name.  
+It is possible to import the the server errors by the name bellow and you get get any of them. They are an object with code, string and name.
 
 Code | String                          | Name
 ---  | ---                             | ---
@@ -213,7 +213,7 @@ Code | String                          | Name
 ### Usage example
 
 ```
-  const { INTERNAL_SERVER_ERROR } = require('houston');
+  const { INTERNAL_SERVER_ERROR } = require('houston-errors');
   console.log(`code: ${INTERNAL_SERVER_ERROR.code}, name: ${INTERNAL_SERVER_ERROR.name}, error: ${INTERNAL_SERVER_ERROR.error} `);
 ```
 
@@ -234,7 +234,7 @@ Bandwidth Limit Exceeded               |
 Not Extended                           |
 Network Authentication Required        |
 
-All those functions above returns a DefaultError and have the structure like: 
+All those functions above returns a DefaultError and have the structure like:
 
 ### FunctionName([optionals])
 - `optionals` - optional object where:
@@ -244,7 +244,7 @@ All those functions above returns a DefaultError and have the structure like:
 ### Usage example
 
 ```
-const { InternalServerError } = require('houston');
+const { InternalServerError } = require('houston-errors');
 
 try {
     InternalServerError();
@@ -255,7 +255,7 @@ try {
 
 Setting message and data.
 ```
-const { InternalServerError } = require('houston');
+const { InternalServerError } = require('houston-errors');
 
 try {
     InternalServerError({message: 'custom message', data: 'some custom object or message'});
