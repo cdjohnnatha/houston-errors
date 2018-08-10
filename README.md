@@ -8,11 +8,11 @@ The Houston creates http errors (is also used to create custom errors) in a node
 <!-- toc -->
 
 - [Houston](#houston)
-  - [`DefaultError(houstonError, [optionals])`](#DefaultError)
-  - [CustomError([optionals])](#CustomError)
-  - [HoustonErrorEvents](#HoustonErrorEvents)
-- [HoustonClientErrors](#HoustonClientErrors)
-- [HoustonServerErrors](#HoustonServerErrors)
+  - [`DefaultError(houstonError, [optionals])`](#defaultError)
+  - [CustomError([optionals])](#customError)
+  - [HoustonErrorEvents](#houstonErrorEvents)
+- [HoustonClientErrors](#houstonClientErrors)
+- [HoustonServerErrors](#houstonServerErrors)
 
 <!-- tocstop -->
 
