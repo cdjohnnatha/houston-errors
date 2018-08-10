@@ -7,13 +7,14 @@ The Houston creates http errors (is also used to create custom errors) in a node
 
 <!-- toc -->
 - [Houston](#Houston)
-  - [DefaultError](#default-error)
-    - [UsageExample](#default-error-usage-example)
   - [DefaultError(houstonError, [optionals])](#default-error)
+    - [UsageExample](#default-error-usage-example)
   - [CustomError([optionals])](#custom-error)
+    - [UsageExample](#custom-error-usage-example)
   - [HoustonErrorEvents](#houston-error-events)
-- [HoustonClientErrors](#http-4xx-errors)
-- [HoustonServerErrors](#http-5xx-errors)
+    - [UsageExample](#houston-error-events)
+- [HoustonClientErrors](#houston-4xx-errors)
+- [HoustonServerErrors](#houston-5xx-errors)
 
 <!-- tocstop -->
 
@@ -41,7 +42,7 @@ It will create a JS Error object, add name, code, error and the optionals (messa
         data: '{Lousma: houston, we have a problem.}',
     });
 ```
-#### CustomError([optionals])
+#### [CustomError](#custom-error)([optionals])
 It is also possible create your custom errors setting things like code, error, name, message and data.
 - `optionals` - optional object where:
 	- `code` is the code of error (default: 500).
@@ -50,7 +51,7 @@ It is also possible create your custom errors setting things like code, error, n
 	- `message` is a custom message (default: if not defined it will be removed of object).
     - `data` - additional error information (it can be object or string, default: if not defined it will be removed of object).
 
-#### Usage Example
+#### [Usage Example](#custom-error-usage-example)
 
 ```
     const houston = require('houston');
@@ -66,7 +67,7 @@ It is also possible create your custom errors setting things like code, error, n
     });
 ```
 
-### HoustonErrorEvents
+### [HoustonErrorEvents](#houston-error-events)
 
 You can also listen the HoustonErrorEvents which will emit all houstonError by the event 'weHaveAProblem' then handle it for whatever you want for a better custom application.
 
