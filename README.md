@@ -6,7 +6,8 @@ The Houston creates http errors (is also used to create custom errors) in a node
 
 
 <!-- toc -->
-- [Houston](#Houston)
+
+- [Houston](#houston)
   - [DefaultError(houstonError, [optionals])](#default-error)
     - [UsageExample](#default-error-usage-example)
   - [CustomError([optionals])](#custom-error)
@@ -19,8 +20,7 @@ The Houston creates http errors (is also used to create custom errors) in a node
 <!-- tocstop -->
 
 
-
-## [Houston](#Houston)
+## [Houston](#houston)
 All function listed above use on of DefaultError from houston module.
 
 ### [DefaultError](#default-error)(houstonError, [optionals])
@@ -71,17 +71,17 @@ It is also possible create your custom errors setting things like code, error, n
 
 You can also listen the HoustonErrorEvents which will emit all houstonError by the event 'weHaveAProblem' then handle it for whatever you want for a better custom application.
 
-#### Usage Example
+#### [Usage Example](#houston-error-events)
 
-``
+```
     const { HoustonErrorEvent } = require('houston');
 
     HoustonErrorEvent.on('weHaveAProblem', (error) => {
       //..code
     });
-``
+```
 
-## HoustonClientErrors
+## [HoustonClientErrors](#houston-4xx-errors)
 It is possible to import the the client errors by the name bellow and you get get any of them. They are an object with code, string and name.  
 
 Code | String                          | Name
@@ -188,7 +188,7 @@ try {
 ```
 
 
-## HoustonServerErrors
+## [HoustonServerErrors](#houston-5xx-errors)
 It is possible to import the the server errors by the name bellow and you get get any of them. They are an object with code, string and name.  
 
 Code | String                          | Name
