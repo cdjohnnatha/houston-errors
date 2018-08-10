@@ -8,7 +8,7 @@ The Houston creates http errors (is also used to create custom errors) in a node
 <!-- toc -->
 
 - [Houston](#houston)
-  - [DefaultError(houstonError, [optionals])](#default-error)
+  - [`DefaultError(houstonError, [optionals])`](#default-error)
     - [UsageExample](#default-error-usage-example)
   - [CustomError([optionals])](#custom-error)
     - [UsageExample](#custom-error-usage-example)
@@ -20,10 +20,10 @@ The Houston creates http errors (is also used to create custom errors) in a node
 <!-- tocstop -->
 
 
-## [Houston](#houston)
+## Houston
 All function listed above use on of DefaultError from houston module.
 
-### [DefaultError](#default-error)(houstonError, [optionals])
+### `DefaultError`(#default-error)(houstonError, [optionals])
 
 It will create a JS Error object, add name, code, error and the optionals (message, data). All the functions will returns the DefaultError.
 
