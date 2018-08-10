@@ -8,7 +8,8 @@ The Houston creates http errors (is also used to create custom errors) in a node
 <!-- toc -->
 
 - [Houston](#houston)
-  - [`DefaultError(houstonError, [optionals])`](#defaultError)
+  - [`DefaultError(houstonError, [optionals])`](#default-error)
+    - [Usage Example](#usage-example-default-error)
   - [CustomError([optionals])](#customError)
   - [HoustonErrorEvents](#houstonErrorEvents)
 - [HoustonClientErrors](#houstonClientErrors)
@@ -20,14 +21,14 @@ The Houston creates http errors (is also used to create custom errors) in a node
 ## Houston
 All function listed above use on of DefaultError from houston module.
 
-### `DefaultError`(#default-error)(houstonError, [optionals])
+### `DefaultError`(houstonError, [optionals])
 
 It will create a JS Error object, add name, code, error and the optionals (message, data). All the functions will returns the DefaultError.
 
 - `houstonError` - Objects which can ben found in in houstonClientErrors, houstonServerErrors.
 - `optionals` - optional object where:
 	- `message` is a custom message which will be show in error.
-    - `data` - additional error information (it can be object or string).
+    - `data` - additional error information (it can be object or string). (#default-error)
 
 #### Usage Example(#default-error-usage-example)
 
@@ -39,6 +40,8 @@ It will create a JS Error object, add name, code, error and the optionals (messa
         data: '{Lousma: houston, we have a problem.}',
     });
 ```
+(#usage-example-default-error)
+
 #### CustomError(#custom-error)([optionals])
 It is also possible create your custom errors setting things like code, error, name, message and data.
 - `optionals` - optional object where:
