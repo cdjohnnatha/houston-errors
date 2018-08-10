@@ -1,11 +1,16 @@
 {
   "name": "houston",
   "version": "1.0.2",
-  "private": true,
+  "private": false,
   "scripts": {
     "start": "node ./bin/www",
     "test": "jest"
   },
+  "engines": {
+    "node": ">=9.2.1",
+    "npm": "5.5.1"
+  },
+  "author": "claudio djohnnatha duarte lourenco",
   "dependencies": {
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
