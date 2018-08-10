@@ -8,12 +8,11 @@ The Houston creates http errors (is also used to create custom errors) in a node
 <!-- toc -->
 
 - [Houston](#houston)
-  - [`DefaultError(houstonError, [optionals])`](#default-error)
-    - [Usage Example](#usage-example-default-error)
-  - [CustomError([optionals])](#customError)
-  - [HoustonErrorEvents](#houstonErrorEvents)
-- [HoustonClientErrors](#houstonClientErrors)
-- [HoustonServerErrors](#houstonServerErrors)
+  - [`DefaultError(houstonError, [optionals])`](#default-errorhoustonError-optionals)
+  - [CustomError([optionals])](#custom-errors-optionals)
+  - [HoustonErrorEvents](#houston-error-events)
+- [HoustonClientErrors](#houston-client-errors)
+- [HoustonServerErrors](#houston-server-errors)
 
 <!-- tocstop -->
 
@@ -21,16 +20,16 @@ The Houston creates http errors (is also used to create custom errors) in a node
 ## Houston
 All function listed above use on of DefaultError from houston module.
 
-### `DefaultError`(houstonError, [optionals])
+### DefaultError(houstonError, [optionals])
 
 It will create a JS Error object, add name, code, error and the optionals (message, data). All the functions will returns the DefaultError.
 
 - `houstonError` - Objects which can ben found in in houstonClientErrors, houstonServerErrors.
 - `optionals` - optional object where:
 	- `message` is a custom message which will be show in error.
-    - `data` - additional error information (it can be object or string). (#default-error)
+    - `data` - additional error information (it can be object or string).
 
-#### Usage Example(#default-error-usage-example)
+#### Usage Example
 
 ```
     const houston = require('houston');
@@ -40,9 +39,8 @@ It will create a JS Error object, add name, code, error and the optionals (messa
         data: '{Lousma: houston, we have a problem.}',
     });
 ```
-(#usage-example-default-error)
 
-#### CustomError(#custom-error)([optionals])
+#### CustomError([optionals])
 It is also possible create your custom errors setting things like code, error, name, message and data.
 - `optionals` - optional object where:
 	- `code` is the code of error (default: 500).
@@ -51,7 +49,7 @@ It is also possible create your custom errors setting things like code, error, n
 	- `message` is a custom message (default: if not defined it will be removed of object).
     - `data` - additional error information (it can be object or string, default: if not defined it will be removed of object).
 
-#### Usage Example(#custom-error-usage-example)
+#### Usage Example
 
 ```
     const houston = require('houston');
@@ -67,12 +65,11 @@ It is also possible create your custom errors setting things like code, error, n
     });
 ```
 
-### HoustonErrorEvents(#houston-error-events)
+### HoustonErrorEvents
 
 You can also listen the HoustonErrorEvents which will emit all houstonError by the event 'weHaveAProblem' then handle it for whatever you want for a better custom application.
 
-#### Usage Example(#houston-error-events)
-
+#### Usage Example
 ```
     const { HoustonErrorEvent } = require('houston');
 
@@ -81,7 +78,7 @@ You can also listen the HoustonErrorEvents which will emit all houstonError by t
     });
 ```
 
-## HoustonClientErrors(#houston-4xx-errors)
+## HoustonClientErrors
 It is possible to import the the client errors by the name bellow and you get get any of them. They are an object with code, string and name.  
 
 Code | String                          | Name
@@ -188,7 +185,7 @@ try {
 ```
 
 
-## HoustonServerErrors(#houston-5xx-errors)
+## HoustonServerErrors
 It is possible to import the the server errors by the name bellow and you get get any of them. They are an object with code, string and name.  
 
 Code | String                          | Name
