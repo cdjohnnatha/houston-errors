@@ -1,5 +1,5 @@
-# Houston-Errors "we have a problem"
-The Houston creates http errors (is also used to create custom errors) in a node application. The idea is to centralize all errors in a function, have a easy access to default http errors getting code, string and name, show in console and the best, given you a freedom  to handle the errors as you want. It also have an option to handle errors from [Sequelize](http://docs.sequelizejs.com/) pattern.
+# Houston-Errors, "we have a problem"
+The Houston creates a Error object from node, uses http errors and makes easy to add informations for it. (for while just in 400x, 500x, but you can create custom errors). All errors uses the same function which centralize everything in one place, that way makes easy to handle your errors. Also have an option to get default http errors by code, string and name, shows in console, and the best part is give you a freedom to handle the errors as you want. It also have an option to handle errors from [Sequelize](http://docs.sequelizejs.com/).
 
 [![Code style: airbnb](https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat-square)](https://github.com/airbnb/javascript)
 ![node (scoped with tag)](https://img.shields.io/node/v/@stdlib/stdlib/latest.svg)
@@ -25,7 +25,7 @@ The Houston creates http errors (is also used to create custom errors) in a node
 
 
 ## Houston-Errors
-All function listed above use on of DefaultError from houston module.
+All function listed above use on of DefaultError from houston-errors module.
 
 ### DefaultError(houstonError, [optionals])
 
@@ -39,9 +39,10 @@ It will create a JS Error object, add name, code, error and the optionals (messa
 #### Usage Example
 
 ```
-    const houston = require('houston-errors');
+    const { DefaultError } = require('houston-errors').houston;
+    const { BAD_REQUEST } = require('houston-errors').houstonClientErrors;
     const sendMessage = 'This is Houston. Say again, please';
-    houston.DefaultError(houston.BAD_REQUEST, {
+    DefaultError(BAD_REQUEST, {
         message: sendMessage,
         data: '{Lousma: houston, we have a problem.}',
     });
@@ -59,11 +60,11 @@ It is also possible create your custom errors setting things like code, error, n
 #### Usage Example
 
 ```
-    const houston = require('houston-errors');
+    const { CustomError } = require('houston-errors').houston;
     const sendMessage = 'This is Houston. Say again, please';
     const lovellData = {lovell: 'We have had a MAIN B BUS UNDERVOLT'};
     const errorDef = 'houston, we have a problem';
-    houston.CustomError({
+    CustomError({
         code: 406,
         error: errorDef,
         name:'Lousma',
@@ -78,7 +79,7 @@ You can also listen the HoustonErrorEvents which will emit all houstonError by t
 
 #### Usage Example
 ```
-    const { HoustonErrorEvent } = require('houston-errors');
+    const { HoustonErrorEvent } = require('houston-errors').houston;
 
     HoustonErrorEvent.on('weHaveAProblem', (error) => {
       //..code
@@ -123,7 +124,7 @@ Code | String                          | Name
 ### Usage example
 
 ```
-  const { NOT_FOUND } = require('houston-errors');
+  const { NOT_FOUND } = require('houston-errors').houstonClientErrors;
   console.log(`code: ${NOT_FOUND.code}, name: ${NOT_FOUND.name}, error: ${NOT_FOUND.error} `);
 ```
 
@@ -171,7 +172,7 @@ All those functions above returns a DefaultError and have the structure like:
 ### Usage example
 
 ```
-const { NotFound } = require('houston-errors');
+const { NotFound } = require('houston-errors').houstonClientErrors;
 
 try {
     NotFound();
@@ -182,7 +183,7 @@ try {
 
 Setting message and data.
 ```
-const { NotFound } = require('houston-errors');
+const { NotFound } = require('houston-errors').houstonClientErrors;
 
 try {
     NotFound({message: 'custom message', data: 'some custom object or message'});
@@ -213,7 +214,7 @@ Code | String                          | Name
 ### Usage example
 
 ```
-  const { INTERNAL_SERVER_ERROR } = require('houston-errors');
+  const { INTERNAL_SERVER_ERROR } = require('houston-errors').houstonServerErrors;
   console.log(`code: ${INTERNAL_SERVER_ERROR.code}, name: ${INTERNAL_SERVER_ERROR.name}, error: ${INTERNAL_SERVER_ERROR.error} `);
 ```
 
@@ -244,7 +245,7 @@ All those functions above returns a DefaultError and have the structure like:
 ### Usage example
 
 ```
-const { InternalServerError } = require('houston-errors');
+const { InternalServerError } = require('houston-errors').houstonServerErrors;
 
 try {
     InternalServerError();
@@ -255,7 +256,7 @@ try {
 
 Setting message and data.
 ```
-const { InternalServerError } = require('houston-errors');
+const { InternalServerError } = require('houston-errors').houstonServerErrors;
 
 try {
     InternalServerError({message: 'custom message', data: 'some custom object or message'});
