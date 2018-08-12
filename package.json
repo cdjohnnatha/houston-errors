@@ -1,7 +1,9 @@
 {
   "name": "houston-errors",
+  "description": "The Houston creates http errors (is also used to create custom errors) by node application. It is centralized all errors in a function, making easy to handle errors",
   "version": "1.0.2",
   "private": false,
+  "license": "MIT",
   "scripts": {
     "start": "node ./bin/www",
     "test": "jest"
@@ -20,5 +22,12 @@
   },
   "devDependencies": {
     "jest": "^23.4.2"
-  }
+  },
+  "keywords": [
+    "errors",
+    "http",
+    "http-errors",
+    "friendly-errors",
+    "friendly"
+  ]
 }
