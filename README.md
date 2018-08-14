@@ -308,7 +308,7 @@ try {
 
 ## Apollo13
 
-It is just an additional messages which is common used.
+It is just an additional function and objects.
 
 Code | String                           | Name
 ---  | ---                              | ---
