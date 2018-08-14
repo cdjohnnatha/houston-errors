@@ -58,10 +58,10 @@ app.get('/users/:id', (req, res) => {
 - [HoustonServerErrors](#user-content-houstonservererrors)
   - [Object Usage Example](#user-content-usage-example-5)
   - [Functions Usage Example](#user-content-functionnameoptionals-1)
-- [Apollo13]()
-  - [Additional Messages]()
-  - [SequelizeError]()
-    - [Usage Example]()
+- [Apollo13](#user-content-apollo13)
+  - [Additional Messages](#user-content-apollo13)
+  - [SequelizeError](#user-content-sequelizeerror)
+    - [Usage Example](#user-content-sequelizeerror-usage-example)
 <!-- tocstop -->
 
 
