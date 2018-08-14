@@ -1,12 +1,14 @@
 {
   "name": "houston-errors",
   "description": "The Houston creates http errors (is also used to create custom errors) by node application. It is centralized all errors in a function, making easy to handle errors",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": false,
   "license": "MIT",
   "scripts": {
     "start": "node ./bin/www",
-    "test": "jest"
+    "test": "jest --colors",
+    "test:coverage": "npm test -- --coverage",
+    "test:badges": "npm run test:coverage  && jest-coverage-badges"
   },
   "engines": {
     "node": ">=9.2.1",
@@ -21,7 +23,8 @@
     "node-color-log": "^2.1.1"
   },
   "devDependencies": {
-    "jest": "^23.4.2"
+    "jest": "^23.4.2",
+    "jest-coverage-badges": "^1.0.0"
   },
   "repository": {
     "type": "git",

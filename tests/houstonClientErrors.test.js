@@ -532,6 +532,32 @@ test('Test IM_A_TEAPOT 418 Request', async () => {
   } catch(e) { }
 });
 
+test('Test UNPROCESSABLE_ENTITY 421 Request', async () => {
+  try {
+  expect(clientErrors.MISDIRECTED_REQUEST).toEqual({code: 421, name: 'MISDIRECTED_REQUEST', string: 'Misdirected Request'});
+  const data = {field: 'test'};
+  const message = 'My custom Message';
+  const defaultMisdirectedRequestError = await clientErrors.MisdirectedRequest();
+  expect(defaultMisdirectedRequestError.code).toBe(421);
+  expect(defaultMisdirectedRequestError.name).toMatch('MISDIRECTED_REQUEST');
+  expect(defaultMisdirectedRequestError.error).toMatch('Misdirected Request');
+  expect(defaultMisdirectedRequestError.data).toBeUndefined();
+  const MisdirectedRequestWithMessage =  await clientErrors.MisdirectedRequest(message);
+  expect(MisdirectedRequestWithMessage.code).toBe(421);
+  expect(MisdirectedRequestWithMessage.name).toMatch('MISDIRECTED_REQUEST');
+  expect(MisdirectedRequestWithMessage.error).toMatch('Misdirected Request');
+  expect(MisdirectedRequestWithMessage.message).toMatch(message);
+  expect(MisdirectedRequestWithMessage.data).toBeUndefined();
+
+  const MisdirectedRequestWithMessageData =  await clientErrors.MisdirectedRequest(message, data);
+  expect(MisdirectedRequestWithMessageData.code).toBe(421);
+  expect(MisdirectedRequestWithMessageData.name).toMatch('MISDIRECTED_REQUEST');
+  expect(MisdirectedRequestWithMessageData.error).toMatch('Misdirected Request');
+  expect(MisdirectedRequestWithMessageData.message).toMatch(message);
+  expect(MisdirectedRequestWithMessageData.data).toMatchObject(data);
+  } catch(e) { }
+});
+
 test('Test UNPROCESSABLE_ENTITY 422 Request', async () => {
   try {
   expect(clientErrors.UNPROCESSABLE_ENTITY).toEqual({code: 422, name: 'UNPROCESSABLE_ENTITY', string: 'Unprocessable Entity'});
