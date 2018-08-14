@@ -1,9 +1,47 @@
 # Houston-Errors, "we have a problem"
-The Houston creates a [JavaScript Error](https://nodejs.org/api/errors.html#errors_class_error), uses http errors and makes easy to add informations on it. (for while just in 400x, 500x, but you can create custom errors). All errors uses the same function which centralize everything in one place, in that way makes easy handling errors. Also have an option to get default http errors objects by name, and from it get name, string and code. All errors are logged, and the best part is **freedom** to listen all errors and handle them by HoustonErrorEvents. It also have some integrations such as [Sequelize](http://docs.sequelizejs.com/).
+The Houston creates and returns a [JavaScript Error](https://nodejs.org/api/errors.html#errors_class_error), uses http errors and makes easy to add informations on it. (for while just in 400x, 500x, but you can create custom errors). All errors uses the same function called [DefaultError](#user-content-defaulterrorhoustonerror-optionals) which centralizes everything, that way makes easy handling errors. Also have an option to get default http errors objects by name, and from it get name, string and code. All errors are logged, and the best part is **freedom** to listen all errors and handle them by HoustonErrorEvents. It also have some integrations such as [Sequelize](http://docs.sequelizejs.com/).
 
 [![Code style: airbnb](https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat-square)](https://github.com/airbnb/javascript)
 ![node (scoped with tag)](https://img.shields.io/node/v/@stdlib/stdlib/latest.svg)
 
+
+## Example of application (piece found over web)
+
+```
+app.get('/users/:id', (req, res) => {
+  const userId = req.params.id
+  if (!userId) {
+    return res.sendStatus(400).json({
+      error: 'Missing id'
+    })
+  }
+
+  Users.get(userId, (err, user) => {
+    if (err) {
+      return res.sendStatus(500).json(err)
+    }
+
+    res.send(users)
+  })
+})
+```
+
+## Using Houston
+
+```
+const { BadRequest } = require('houston-errors).houstonClientErrors;
+const { InternalServerError } = require('houston-errors).houstonServerErrors;
+app.get('/users/:id', (req, res) => {
+  try {
+	const userId = req.params.id
+	if (!userId) { BadRequest({ message: 'Missing id' }); }
+	Users.get(userId, (err, user) => {
+	if (err) { InternalServerError({ data: err }); }
+	res.send(users);
+  } catch (error) {
+      return res.sendStatus(error.code).json(error)
+  }
+```
 
 <!-- toc -->
 
@@ -20,12 +58,15 @@ The Houston creates a [JavaScript Error](https://nodejs.org/api/errors.html#erro
 - [HoustonServerErrors](#user-content-houstonservererrors)
   - [Object Usage Example](#user-content-usage-example-5)
   - [Functions Usage Example](#user-content-functionnameoptionals-1)
-
+- [Apollo13]()
+  - [Additional Messages]()
+  - [SequelizeError]()
+    - [Usage Example]()
 <!-- tocstop -->
 
 
 ## Houston-Errors
-All function listed above use on of DefaultError from houston-errors module.
+All function listed above use on of DefaultError from houston-errors.
 
 ### DefaultError(houstonError, [optionals])
 
@@ -264,3 +305,44 @@ try {
     console.log(error.message);
   }
 ```
+
+## Apollo13
+
+It is just an additional messages which is common used.
+
+Code | String                           | Name
+---  | ---                              | ---
+403  | User is not active               | USER_NOT_ACTIVE
+403  | License is not active            | LICENSE_IS_NOT_ACTIVE
+403  | Renew license required           | RENEW_LICENSE_REQUIRED
+401  | No token found                   | NO_TOKEN
+401  | Invalid token                    | INVALID_TOKEN
+401  | Expired token                    | EXPIRED_TOKEN
+406  | Empty required param             | EMPTY_REQUIRED_PARAM
+
+### SequelizeError
+If you use [Sequelize](http://docs.sequelizejs.com/), the basic of error will be integrated by function bellow.
+
+FunctionName                           |
+---------------------------------------|
+SequelizeError                         |
+
+### SequelizeError, Usage Example
+
+```
+const { SequelizeError } = require('houston-errors').apollo13;
+// Sequelize Model instance.
+const User = require('../db/models/index').users;
+
+try {
+function createUser(userParams) {
+  try {
+    const params = userParams;
+    const user = await User.create(params);
+    return user;
+  } catch (error) {
+    // It will create an object Error; You must return if is in different paths.
+    return SequelizeError(error);
+  }
+```
+
