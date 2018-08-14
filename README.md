@@ -3,7 +3,7 @@ The Houston creates and returns a [JavaScript Error](https://nodejs.org/api/erro
 
 [![Code style: airbnb](https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat-square)](https://github.com/airbnb/javascript)
 ![node (scoped with tag)](https://img.shields.io/node/v/@stdlib/stdlib/latest.svg)
-
+![Jest coverage](/lib/coverage-badges/badge-branches.svg)
 
 ## Example of application (piece found over web)
 
