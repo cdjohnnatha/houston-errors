@@ -35,6 +35,8 @@
     "http",
     "http-errors",
     "friendly-errors",
-    "friendly"
+    "friendly",
+    "http-codes",
+    "http-friendly"
   ]
 }
