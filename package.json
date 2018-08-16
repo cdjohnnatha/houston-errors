@@ -1,7 +1,7 @@
 {
   "name": "houston-errors",
   "description": "The Houston creates http errors (is also used to create custom errors) by node application. It is centralized all errors in a function, making easy to handle errors",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "private": false,
   "license": "MIT",
   "scripts": {
