@@ -2,12 +2,10 @@ const houston = require('../lib/houston');
 const houstonClientErrors = require('../lib/houstonClientErrors');
 const events = require('events').EventEmitter;
 const eventEmitter = new events();
-var emitter = require('events').EventEmitter;
-var em = new emitter();
 
-test('Test CleaningData', async () => {
+test('Test CleaningData', () => {
   const object = {name: null, code: undefined, error: 'Not Found'};
-  let cleaned = await houston.CleaningData(object);
+  let cleaned = houston.CleaningData(object);
   expect(object).not.toHaveProperty('name');
   expect(object).not.toHaveProperty('code');
   expect(object).toHaveProperty('error', 'Not Found');

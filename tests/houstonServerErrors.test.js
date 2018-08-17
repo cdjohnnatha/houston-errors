@@ -11,14 +11,14 @@ test('Test 500 - Internal Server Error', async () => {
     expect(defaultInternalServerErrorError.name).toMatch('INTERNAL_SERVER_ERROR');
     expect(defaultInternalServerErrorError.error).toMatch('Internal Server Error');
     expect(defaultInternalServerErrorError.data).toBeUndefined();
-    const InternalServerErrorWithMessage =  await clientErrors.InternalServerError(message);
+    const InternalServerErrorWithMessage =  await clientErrors.InternalServerError({ message: message });
     expect(InternalServerErrorWithMessage.code).toBe(500);
     expect(InternalServerErrorWithMessage.name).toMatch('INTERNAL_SERVER_ERROR');
     expect(InternalServerErrorWithMessage.error).toMatch('Internal Server Error');
     expect(InternalServerErrorWithMessage.message).toMatch(message);
     expect(InternalServerErrorWithMessage.data).toBeUndefined();
 
-    const InternalServerErrorWithMessageData =  await clientErrors.InternalServerError(message, data);
+    const InternalServerErrorWithMessageData =  await clientErrors.InternalServerError({message: message, data: data});
     expect(InternalServerErrorWithMessageData.code).toBe(500);
     expect(InternalServerErrorWithMessageData.name).toMatch('INTERNAL_SERVER_ERROR');
     expect(InternalServerErrorWithMessageData.error).toMatch('Internal Server Error');
@@ -38,14 +38,14 @@ test('Test 501 - Not Implemented', async () => {
     expect(defaultNotImplementedError.name).toMatch('NOT_IMPLEMENTED');
     expect(defaultNotImplementedError.error).toMatch('Not Implemented');
     expect(defaultNotImplementedError.data).toBeUndefined();
-    const NotImplementedWithMessage =  await clientErrors.NotImplemented(message);
+    const NotImplementedWithMessage =  await clientErrors.NotImplemented({ message: message });
     expect(NotImplementedWithMessage.code).toBe(501);
     expect(NotImplementedWithMessage.name).toMatch('NOT_IMPLEMENTED');
     expect(NotImplementedWithMessage.error).toMatch('Not Implemented');
     expect(NotImplementedWithMessage.message).toMatch(message);
     expect(NotImplementedWithMessage.data).toBeUndefined();
 
-    const NotImplementedWithMessageData =  await clientErrors.NotImplemented(message, data);
+    const NotImplementedWithMessageData =  await clientErrors.NotImplemented({message: message, data: data});
     expect(NotImplementedWithMessageData.code).toBe(501);
     expect(NotImplementedWithMessageData.name).toMatch('NOT_IMPLEMENTED');
     expect(NotImplementedWithMessageData.error).toMatch('Not Implemented');
@@ -65,14 +65,14 @@ test('Test 502 - Bad Gateway', async () => {
     expect(defaultBadGateway.name).toMatch('BAD_GATEWAY');
     expect(defaultBadGateway.error).toMatch('Bad Gateway');
     expect(defaultBadGateway.data).toBeUndefined();
-    const BadGatewayWithMessage =  await clientErrors.BadGateway(message);
+    const BadGatewayWithMessage =  await clientErrors.BadGateway({ message: message });
     expect(BadGatewayWithMessage.code).toBe(502);
     expect(BadGatewayWithMessage.name).toMatch('BAD_GATEWAY');
     expect(BadGatewayWithMessage.error).toMatch('Bad Gateway');
     expect(BadGatewayWithMessage.message).toMatch(message);
     expect(BadGatewayWithMessage.data).toBeUndefined();
 
-    const BadGatewayWithMessageData =  await clientErrors.BadGateway(message, data);
+    const BadGatewayWithMessageData =  await clientErrors.BadGateway({message: message, data: data});
     expect(BadGatewayWithMessageData.code).toBe(502);
     expect(BadGatewayWithMessageData.name).toMatch('BAD_GATEWAY');
     expect(BadGatewayWithMessageData.error).toMatch('Bad Gateway');
@@ -92,14 +92,14 @@ test('Test 503 - Service Unavailable', async () => {
     expect(defaultServiceUnavailableError.name).toMatch('SERVICE_UNAVAILABLE');
     expect(defaultServiceUnavailableError.error).toMatch('Service Unavailable');
     expect(defaultServiceUnavailableError.data).toBeUndefined();
-    const ServiceUnavailableWithMessage =  await clientErrors.ServiceUnavailable(message);
+    const ServiceUnavailableWithMessage =  await clientErrors.ServiceUnavailable({ message: message });
     expect(ServiceUnavailableWithMessage.code).toBe(503);
     expect(ServiceUnavailableWithMessage.name).toMatch('SERVICE_UNAVAILABLE');
     expect(ServiceUnavailableWithMessage.error).toMatch('Service Unavailable');
     expect(ServiceUnavailableWithMessage.message).toMatch(message);
     expect(ServiceUnavailableWithMessage.data).toBeUndefined();
 
-    const ServiceUnavailableWithMessageData =  await clientErrors.ServiceUnavailable(message, data);
+    const ServiceUnavailableWithMessageData =  await clientErrors.ServiceUnavailable({message: message, data: data});
     expect(ServiceUnavailableWithMessageData.code).toBe(503);
     expect(ServiceUnavailableWithMessageData.name).toMatch('SERVICE_UNAVAILABLE');
     expect(ServiceUnavailableWithMessageData.error).toMatch('Service Unavailable');
@@ -119,14 +119,14 @@ test('Test 504 - Gateway Timeout', async () => {
     expect(defaultGatewayTimeoutError.name).toMatch('GATEWAY_TIMEOUT');
     expect(defaultGatewayTimeoutError.error).toMatch('Gateway Timeout');
     expect(defaultGatewayTimeoutError.data).toBeUndefined();
-    const GatewayTimeoutWithMessage =  await clientErrors.GatewayTimeout(message);
+    const GatewayTimeoutWithMessage =  await clientErrors.GatewayTimeout({ message: message });
     expect(GatewayTimeoutWithMessage.code).toBe(504);
     expect(GatewayTimeoutWithMessage.name).toMatch('GATEWAY_TIMEOUT');
     expect(GatewayTimeoutWithMessage.error).toMatch('Gateway Timeout');
     expect(GatewayTimeoutWithMessage.message).toMatch(message);
     expect(GatewayTimeoutWithMessage.data).toBeUndefined();
 
-    const GatewayTimeoutWithMessageData =  await clientErrors.GatewayTimeout(message, data);
+    const GatewayTimeoutWithMessageData =  await clientErrors.GatewayTimeout({message: message, data: data});
     expect(GatewayTimeoutWithMessageData.code).toBe(504);
     expect(GatewayTimeoutWithMessageData.name).toMatch('GATEWAY_TIMEOUT');
     expect(GatewayTimeoutWithMessageData.error).toMatch('Gateway Timeout');
@@ -146,14 +146,14 @@ test('Test 505 - HTTP Version Not Supported', async () => {
     expect(defaultHTTPVersionNotSupportedError.name).toMatch('HTTP_VERSION_NOT_SUPPORTED');
     expect(defaultHTTPVersionNotSupportedError.error).toMatch('HTTP Version Not Supported');
     expect(defaultHTTPVersionNotSupportedError.data).toBeUndefined();
-    const HTTPVersionNotSupportedWithMessage =  await clientErrors.HTTPVersionNotSupported(message);
+    const HTTPVersionNotSupportedWithMessage =  await clientErrors.HTTPVersionNotSupported({ message: message });
     expect(HTTPVersionNotSupportedWithMessage.code).toBe(505);
     expect(HTTPVersionNotSupportedWithMessage.name).toMatch('HTTP_VERSION_NOT_SUPPORTED');
     expect(HTTPVersionNotSupportedWithMessage.error).toMatch('HTTP Version Not Supported');
     expect(HTTPVersionNotSupportedWithMessage.message).toMatch(message);
     expect(HTTPVersionNotSupportedWithMessage.data).toBeUndefined();
 
-    const HTTPVersionNotSupportedWithMessageData =  await clientErrors.HTTPVersionNotSupported(message, data);
+    const HTTPVersionNotSupportedWithMessageData =  await clientErrors.HTTPVersionNotSupported({message: message, data: data});
     expect(HTTPVersionNotSupportedWithMessageData.code).toBe(505);
     expect(HTTPVersionNotSupportedWithMessageData.name).toMatch('HTTP_VERSION_NOT_SUPPORTED');
     expect(HTTPVersionNotSupportedWithMessageData.error).toMatch('HTTP Version Not Supported');
@@ -173,14 +173,14 @@ test('Test 506 - Variant Also Negotiates', async () => {
     expect(defaultVariantAlsoNegotiatesError.name).toMatch('VARIANT_ALSO_NEGOTIATES');
     expect(defaultVariantAlsoNegotiatesError.error).toMatch('Variant Also Negotiates');
     expect(defaultVariantAlsoNegotiatesError.data).toBeUndefined();
-    const VariantAlsoNegotiatesWithMessage =  await clientErrors.VariantAlsoNegotiates(message);
+    const VariantAlsoNegotiatesWithMessage =  await clientErrors.VariantAlsoNegotiates({ message: message });
     expect(VariantAlsoNegotiatesWithMessage.code).toBe(506);
     expect(VariantAlsoNegotiatesWithMessage.name).toMatch('VARIANT_ALSO_NEGOTIATES');
     expect(VariantAlsoNegotiatesWithMessage.error).toMatch('Variant Also Negotiates');
     expect(VariantAlsoNegotiatesWithMessage.message).toMatch(message);
     expect(VariantAlsoNegotiatesWithMessage.data).toBeUndefined();
 
-    const VariantAlsoNegotiatesWithMessageData =  await clientErrors.VariantAlsoNegotiates(message, data);
+    const VariantAlsoNegotiatesWithMessageData =  await clientErrors.VariantAlsoNegotiates({message: message, data: data});
     expect(VariantAlsoNegotiatesWithMessageData.code).toBe(506);
     expect(VariantAlsoNegotiatesWithMessageData.name).toMatch('VARIANT_ALSO_NEGOTIATES');
     expect(VariantAlsoNegotiatesWithMessageData.error).toMatch('Variant Also Negotiates');
@@ -200,14 +200,14 @@ test('Test 507 - Insufficient Storage', async () => {
     expect(defaultInsufficientStorageError.name).toMatch('INSUFFICIENT_STORAGE');
     expect(defaultInsufficientStorageError.error).toMatch('Insufficient Storage');
     expect(defaultInsufficientStorageError.data).toBeUndefined();
-    const InsufficientStorageWithMessage =  await clientErrors.InsufficientStorage(message);
+    const InsufficientStorageWithMessage =  await clientErrors.InsufficientStorage({ message: message });
     expect(InsufficientStorageWithMessage.code).toBe(507);
     expect(InsufficientStorageWithMessage.name).toMatch('INSUFFICIENT_STORAGE');
     expect(InsufficientStorageWithMessage.error).toMatch('Insufficient Storage');
     expect(InsufficientStorageWithMessage.message).toMatch(message);
     expect(InsufficientStorageWithMessage.data).toBeUndefined();
 
-    const InsufficientStorageWithMessageData =  await clientErrors.InsufficientStorage(message, data);
+    const InsufficientStorageWithMessageData =  await clientErrors.InsufficientStorage({message: message, data: data});
     expect(InsufficientStorageWithMessageData.code).toBe(507);
     expect(InsufficientStorageWithMessageData.name).toMatch('INSUFFICIENT_STORAGE');
     expect(InsufficientStorageWithMessageData.error).toMatch('Insufficient Storage');
@@ -227,14 +227,14 @@ test('Test 508 - Loop Detected', async () => {
     expect(defaultLoopDetectedError.name).toMatch('LOOP_DETECTED');
     expect(defaultLoopDetectedError.error).toMatch('Loop Detected');
     expect(defaultLoopDetectedError.data).toBeUndefined();
-    const LoopDetectedWithMessage =  await clientErrors.LoopDetected(message);
+    const LoopDetectedWithMessage =  await clientErrors.LoopDetected({ message: message });
     expect(LoopDetectedWithMessage.code).toBe(508);
     expect(LoopDetectedWithMessage.name).toMatch('LOOP_DETECTED');
     expect(LoopDetectedWithMessage.error).toMatch('Loop Detected');
     expect(LoopDetectedWithMessage.message).toMatch(message);
     expect(LoopDetectedWithMessage.data).toBeUndefined();
 
-    const LoopDetectedWithMessageData =  await clientErrors.LoopDetected(message, data);
+    const LoopDetectedWithMessageData =  await clientErrors.LoopDetected({message: message, data: data});
     expect(LoopDetectedWithMessageData.code).toBe(508);
     expect(LoopDetectedWithMessageData.name).toMatch('LOOP_DETECTED');
     expect(LoopDetectedWithMessageData.error).toMatch('Loop Detected');
@@ -254,14 +254,14 @@ test('Test 509 - Bandwidth Limit Exceeded', async () => {
     expect(defaultBandwidthLimitExceededError.name).toMatch('BANDWIDTH_LIMIT_EXCEEDED');
     expect(defaultBandwidthLimitExceededError.error).toMatch('Bandwidth Limit Exceeded');
     expect(defaultBandwidthLimitExceededError.data).toBeUndefined();
-    const BandwidthLimitExceededWithMessage =  await clientErrors.BandwidthLimitExceeded(message);
+    const BandwidthLimitExceededWithMessage =  await clientErrors.BandwidthLimitExceeded({ message: message });
     expect(BandwidthLimitExceededWithMessage.code).toBe(509);
     expect(BandwidthLimitExceededWithMessage.name).toMatch('BANDWIDTH_LIMIT_EXCEEDED');
     expect(BandwidthLimitExceededWithMessage.error).toMatch('Bandwidth Limit Exceeded');
     expect(BandwidthLimitExceededWithMessage.message).toMatch(message);
     expect(BandwidthLimitExceededWithMessage.data).toBeUndefined();
 
-    const BandwidthLimitExceededWithMessageData =  await clientErrors.BandwidthLimitExceeded(message, data);
+    const BandwidthLimitExceededWithMessageData =  await clientErrors.BandwidthLimitExceeded({message: message, data: data});
     expect(BandwidthLimitExceededWithMessageData.code).toBe(509);
     expect(BandwidthLimitExceededWithMessageData.name).toMatch('BANDWIDTH_LIMIT_EXCEEDED');
     expect(BandwidthLimitExceededWithMessageData.error).toMatch('Bandwidth Limit Exceeded');
@@ -281,14 +281,14 @@ test('Test 510 - Not Extended', async () => {
     expect(defaultNotExtendedError.name).toMatch('NOT_EXTENDEED');
     expect(defaultNotExtendedError.error).toMatch('Not Extended');
     expect(defaultNotExtendedError.data).toBeUndefined();
-    const NotExtendedWithMessage =  await clientErrors.NotExtended(message);
+    const NotExtendedWithMessage =  await clientErrors.NotExtended({ message: message });
     expect(NotExtendedWithMessage.code).toBe(510);
     expect(NotExtendedWithMessage.name).toMatch('NOT_EXTENDEED');
     expect(NotExtendedWithMessage.error).toMatch('Not Extended');
     expect(NotExtendedWithMessage.message).toMatch(message);
     expect(NotExtendedWithMessage.data).toBeUndefined();
 
-    const NotExtendedWithMessageData =  await clientErrors.NotExtended(message, data);
+    const NotExtendedWithMessageData =  await clientErrors.NotExtended({message: message, data: data});
     expect(NotExtendedWithMessageData.code).toBe(510);
     expect(NotExtendedWithMessageData.name).toMatch('NOT_EXTENDEED');
     expect(NotExtendedWithMessageData.error).toMatch('Not Extended');
@@ -308,14 +308,14 @@ test('Test 511 - Network Authentication Required', async () => {
     expect(defaultNetworkAuthenticationRequiredError.name).toMatch('NETWORK_AUTHENTICATION_REQUIRED');
     expect(defaultNetworkAuthenticationRequiredError.error).toMatch('Network Authentication Required');
     expect(defaultNetworkAuthenticationRequiredError.data).toBeUndefined();
-    const NetworkAuthenticationRequiredWithMessage =  await clientErrors.NetworkAuthenticationRequired(message);
+    const NetworkAuthenticationRequiredWithMessage =  await clientErrors.NetworkAuthenticationRequired({ message: message });
     expect(NetworkAuthenticationRequiredWithMessage.code).toBe(511);
     expect(NetworkAuthenticationRequiredWithMessage.name).toMatch('NETWORK_AUTHENTICATION_REQUIRED');
     expect(NetworkAuthenticationRequiredWithMessage.error).toMatch('Network Authentication Required');
     expect(NetworkAuthenticationRequiredWithMessage.message).toMatch(message);
     expect(NetworkAuthenticationRequiredWithMessage.data).toBeUndefined();
 
-    const NetworkAuthenticationRequiredWithMessageData =  await clientErrors.NetworkAuthenticationRequired(message, data);
+    const NetworkAuthenticationRequiredWithMessageData =  await clientErrors.NetworkAuthenticationRequired({message: message, data: data});
     expect(NetworkAuthenticationRequiredWithMessageData.code).toBe(511);
     expect(NetworkAuthenticationRequiredWithMessageData.name).toMatch('NETWORK_AUTHENTICATION_REQUIRED');
     expect(NetworkAuthenticationRequiredWithMessageData.error).toMatch('Network Authentication Required');
